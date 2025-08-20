@@ -22,9 +22,10 @@ const Doctors = () => {
     const fetchDoctors = async () => {
         try {
             const response = await fetch(`${baseURL}/doctor`);
-            console.log("25 all doctors", response)
             if (!response.ok) throw new Error('Failed to fetch users');
             const data = await response.json();
+                        console.log("27 all doctors", data)
+
             setDoctors(data);
             setFilteredDoctors(data);
         } catch (err) {
