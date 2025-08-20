@@ -88,7 +88,7 @@ const LandingPage = () => {
              <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+        transition={{ delay: 0.9, duration: 0.8 }}
         className="mt-4 text-gray-600"
       >
             <span>Simply browse through our extensive list of trusted doctors,schedule your appointment hassle-free.</span>
@@ -98,7 +98,8 @@ const LandingPage = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }} 
 className="createAccountBtn"   onClick={navigateLogin}   >
-        CREATE ACCOUNT<i className="fa-solid fa-arrow-right"></i>
+        CREATE ACCOUNT
+        {/* <i className="fa-solid fa-arrow-right"></i> */}
       </motion.button>
         </div>
         <img src="/header_img.png" className="bannerImage" />
