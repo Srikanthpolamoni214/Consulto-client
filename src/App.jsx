@@ -36,6 +36,7 @@ const Layout = () => {
     <>
 
       {!shouldHideLayout && <Navbar />}
+      <div className='common-div'>
       <Routes>
 
         <Route path='/' element={
@@ -100,6 +101,7 @@ const Layout = () => {
           <AuthenticatedRoute> <DoctorDashboard/> </AuthenticatedRoute>
         }/>
       </Routes>
+      </div>
       {!shouldHideLayout && <Footer />}
     </>
   );
