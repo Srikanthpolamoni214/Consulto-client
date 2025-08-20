@@ -6,6 +6,7 @@ import '../../Styles/client/header.css';
 import '../../Styles/client/footer.css';
 import Reviews from "./reviews";
 import "../../Styles/client/reviews.css";
+import { baseURL } from "../../App";
 
 const Dashboard = () => {
   const [categories, setCategories] = useState([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3400/categories');
+        const response = await fetch(`${baseURL}/categories`);
         if (!response.ok) {
           throw new Error('Failed to fetch Categories');
         }
@@ -32,7 +33,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('http://localhost:3400/doctors');
+        const response = await fetch(`${baseURL}/doctors`);
         if (!response.ok) {
           throw new Error('Failed to fetch Doctors');
         }
@@ -48,7 +49,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3400/reviews');
+        const response = await fetch(`${baseURL}/reviews`);
         if (!response.ok) {
           throw new Error('Failed to fetch Reviews');
         }

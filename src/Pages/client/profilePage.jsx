@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/client/profilePage.css';
+import { baseURL } from '../../App';
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
@@ -14,7 +15,7 @@ const ProfilePage = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:3400/userdetails/${userid}`);
+      const response = await fetch(`${baseURL}/userdetails/${userid}`);
       const data = await response.json();
       console.log(data)
       if (Array.isArray(data) && data.length > 0) {
@@ -56,7 +57,7 @@ const ProfilePage = () => {
         formDataToSend.append('image', selectedImage);
       }
 
-      const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`, {
+      const response = await fetch(`${baseURL}/userdetails/${userid}`, {
         method: 'PATCH',
         body: formDataToSend,
       });

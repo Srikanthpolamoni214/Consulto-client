@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc'; // For Google icon
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
+import { baseURL } from '../../App';
 
 const Register = () => {
     const [state, setRegisterState] = useState({})
@@ -42,7 +43,7 @@ const Register = () => {
         }
         
         try {
-            const response = await fetch('http://localhost:3400/register', {
+            const response = await fetch(`${baseURL}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -78,7 +79,7 @@ const Register = () => {
 const handleGoogleCompleteSignup = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`http://localhost:3400/google-register`, {
+    const res = await fetch(`${baseURL}/google-register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

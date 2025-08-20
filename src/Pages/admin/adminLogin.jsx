@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { baseURL } from '../../App';
 const AdminLogin = () => {
   const navigate = useNavigate()
   const [state, setAdminState] = useState({})
@@ -12,7 +12,7 @@ const AdminLogin = () => {
     e.preventDefault();
     console.log(state)
     try {
-      let data = await fetch('http://localhost:3400/admin/login', {
+      let data = await fetch(`${baseURL}/admin/login`, {
         "method": "POST",
         "headers": {
           "Content-Type": "application/json"

@@ -5,6 +5,7 @@ import { FaCalendarCheck, FaUserDoctor, FaSquarePlus } from 'react-icons/fa6';
 import { fetchDoctorById } from '../../Services/services';
 import DoctorProfile from '../../Components/doctorProfile';
 import Table from "../../common/table"; // Make sure this is the correct path
+import { baseURL } from '../../App';
 
 const DoctorDashboard = () => {
     const [doctor, setDoctor] = useState(null);
@@ -15,7 +16,7 @@ const DoctorDashboard = () => {
 console.log("15", doctorId)
     const fetchAppointments = async () => {
         try {
-            const response = await fetch(`http://localhost:3400/doctor/appointments/${doctorId}`);
+            const response = await fetch(`${baseURL}/doctor/appointments/${doctorId}`);
             const data = await response.json();
             console.log(data)
             setAppointments(data);

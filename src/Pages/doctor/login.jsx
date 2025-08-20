@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseURL } from '../../App';
 
 const DoctorLogin = () => {
   const [state, setState] = useState({ email: '', password: '' });
@@ -23,7 +24,7 @@ const DoctorLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3400/doctor/login', {
+      const response = await fetch(`${baseURL}/doctor/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

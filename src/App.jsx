@@ -23,7 +23,7 @@ import DoctorLogin from './Pages/doctor/login'
 import AdminDashboard from './Pages/admin/dashboard'
 import DoctorDashboard from './Pages/doctor/DoctorDashboard'
 
-
+export const baseURL = "https://consulto-server.onrender.com"
 
 const Layout = () => {
   const location = useLocation();

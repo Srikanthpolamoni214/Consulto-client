@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaVideo } from 'react-icons/fa';
+import { baseURL } from "../../App";
 
 const Appointments = () => {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Appointments = () => {
     const userid = user?.userid;
     const fetchAppointments = async () => {
         try {
-            const response = await fetch(`http://localhost:3400/appointments/${userid}`);
+            const response = await fetch(`${baseURL}/appointments/${userid}`);
             const data = await response.json();
             const appointmentsWithStatus = data.map(app => ({
                 ...app,
@@ -50,7 +51,7 @@ const Appointments = () => {
     };
 
     const handleStatus = async (appointment) => {
-        let response = await fetch('http://localhost:3400/updatestatus', {
+        let response = await fetch(`${baseURL}/updatestatus`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

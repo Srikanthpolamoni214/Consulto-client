@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 // import { auth, provider, signInWithPopup } from '../../firebase';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { baseURL } from '../../App';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Login = () => {
       return;
     }
     try {
-      let response = await fetch('http://localhost:3400/login', {
+      let response = await fetch(`${baseURL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

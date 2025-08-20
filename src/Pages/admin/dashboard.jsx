@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Table from "../../common/table";
 import { AdminDoctorsCards } from "../../Components/AdminDoctorCards";
 import AddDoctor from "../../Components/AddDoctor";
+import { baseURL } from "../../App";
 
 const AdminDashboard = () => {
     const [adminDoctors, setAdminDoctors] = useState([]);
@@ -46,7 +47,7 @@ const AdminDashboard = () => {
 
     const fetchAdminDoctors = async () => {
         try {
-            const response = await fetch('http://localhost:3400/admin/doctors');
+            const response = await fetch(`${baseURL}/admin/doctors`);
             if (!response.ok) throw new Error('Failed to fetch doctors');
             const data = await response.json();
             setAdminDoctors(data);
@@ -58,7 +59,7 @@ const AdminDashboard = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await fetch('http://localhost:3400/admin/appointments');
+            const response = await fetch(`${baseURL}/admin/appointments`);
             if (!response.ok) throw new Error('Failed to fetch appointments');
             const data = await response.json();
 

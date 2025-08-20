@@ -461,6 +461,7 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import '../../Styles/client/singleDoctor.css';
 import FormsData from '../../data/inputsData.js';
 import { fetchDoctorById } from "../../Services/services.js";
+import { baseURL } from "../../App.jsx";
 
 const stripePromise = loadStripe('pk_test_51RxWHGAqFiO4uueP48Lz9VSaPzt4t4f2rZivKUFL1cLE6XkbHDkH1tCnOQnm2axLFDv90fOjWWkjHMGpcuO9ax8I00VPJkB5tP');
 
@@ -582,7 +583,7 @@ const SingleDoctor = () => {
         const fetchAppointments = async () => {
             try {
                 setIsLoading(true);
-                const res = await fetch(`http://localhost:3400/doctor/doctor/${id}`);
+                const res = await fetch(`${baseURL}/doctor/doctor/${id}`);
                 const data = await res.json();
                 const alteredData = data.map(appointment => {
                     appointment.date = appointment.date.split('T')[0];
@@ -814,7 +815,7 @@ console.log(".....", totalBooked)
         };
 
         try {
-            const paymentIntentResponse = await fetch('http://localhost:3400/api/payments/create-payment-intent', {
+            const paymentIntentResponse = await fetch(`${baseURL}/api/payments/create-payment-intent`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -846,7 +847,7 @@ console.log(".....", totalBooked)
             if (error) throw error;
 
             if (paymentIntent.status === 'succeeded') {
-                const response = await fetch('http://localhost:3400/appointments', {
+                const response = await fetch(`${baseURL}/appointments`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

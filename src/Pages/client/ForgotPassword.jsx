@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../Styles/client/forgot.css";
 import {useNavigate} from 'react-router-dom'
+import { baseURL } from "../../App";
 
 export const ForgotPassword = () => {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ export const ForgotPassword = () => {
     }
 
     try {
-      const response = await fetch("https://consulto.onrender.com/forgotpassword", {
+      const response = await fetch(`${baseURL}/forgotpassword`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -79,7 +80,7 @@ const handlePasswordReset = async () => {
   }
 
   try {
-    const response = await fetch("https://consulto.onrender.com/updatepassword", {
+    const response = await fetch(`${baseURL}/updatepassword`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
