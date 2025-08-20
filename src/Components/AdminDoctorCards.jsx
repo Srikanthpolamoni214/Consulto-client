@@ -1,12 +1,13 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseURL } from '../App';
 
 export const AdminDoctorsCards = (props) => {
   const { doctors } = props;
 
   const removeDoctor = async (doctor) => {
     try {
-      const response = await fetch('http://localhost:3400/admin/deletedoctor', {
+      const response = await fetch(`${baseURL}/admin/deletedoctor`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"
