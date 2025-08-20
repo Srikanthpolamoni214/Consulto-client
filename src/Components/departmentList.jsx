@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { baseURL } from "../App";
 
 const List = ({ onCategoryClick }) => {
     const [categories, setCategories] = useState([]);
@@ -6,7 +7,7 @@ const List = ({ onCategoryClick }) => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("http://localhost:3400/categories");
+                const response = await fetch(`${baseURL}/categories`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch Categories");
                 }
