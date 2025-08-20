@@ -3,6 +3,7 @@ import FormsData from "../data/inputsData";
 import "../Styles/admin/addDoctorForm.css";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { baseURL } from "../App";
 
 export const AddDoctor = () => {
   
@@ -68,7 +69,7 @@ formData.append('avaliableslots', JSON.stringify([doctorDetails.avaliableslots])
 
 // For slots, send as plain string (and parse in backend)
 
-      const response = await fetch('http://localhost:3400/admin/adddoctor', {
+      const response = await fetch(`${baseURL}/admin/adddoctor`, {
         method: "POST",
         body: formData
       });
