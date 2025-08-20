@@ -34,7 +34,7 @@ export const AllDoctors =(props)=>{
     const showDoctor = (id)=>{
         navigate(`/doctor/${id}`)
     }
-    console.log("37", doctors)
+    console.log("37 all doctors :", doctors)
     return(
         <>
         {doctors.map(doctor=>{
