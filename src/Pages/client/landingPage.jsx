@@ -7,6 +7,8 @@ import '../../Styles/client/footer.css'
 import Reviews from "./reviews";
 import "../../Styles/client/reviews.css"
 import { baseURL } from "../../App";
+import { motion } from "framer-motion";
+
 const LandingPage = () => {
   const [categories, setCategories] = useState([]);
   const [doctors, setDoctors] = useState([])
@@ -73,12 +75,31 @@ const LandingPage = () => {
     <>
       <div className="bannerContainer">
         <div className="bannerDetails">
+          <motion.h1
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-bold"
+      >
           <p className="mainText">Book Appointment  <br />With 100+ Trusted <br /> Doctors</p>
+      </motion.h1>
           <div className="">
             <img src="/group_profiles.png" className="groupImage" />
+             <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="mt-4 text-gray-600"
+      >
             <span>Simply browse through our extensive list of trusted doctors,schedule your appointment hassle-free.</span>
+      </motion.p>
           </div>
-          <button className="createAccountBtn" onClick={navigateLogin}>CREATE ACCOUNT<i className="fa-solid fa-arrow-right"></i></button>
+          <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }} 
+className="createAccountBtn"   onClick={navigateLogin}   >
+        CREATE ACCOUNT<i className="fa-solid fa-arrow-right"></i>
+      </motion.button>
         </div>
         <img src="/header_img.png" className="bannerImage" />
       </div>
